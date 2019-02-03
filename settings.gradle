@@ -1,0 +1,7 @@
+
+rootProject.name = 'SpringCloudApiGateway'
+
+include 'api-gateway','config-server','eureka-server','service-A','service-B',
+        'rabbitmq-hello','stream-hello','trace-1','trace-2','zipkin-server','trace-1-stream',
+        'trace-2-stream','zipkin-server-stream','auth-server','jwt-auth','jwt-resource','oauth2-demo',
+        'freemarkerDemo','admin-server'

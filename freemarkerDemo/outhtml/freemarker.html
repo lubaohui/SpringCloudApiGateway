@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script src="$msburl/common/js/jquery-1.7.2.min.js"></script>
+<script src="$msburl/common/js/jquery.validate-1.9.0.min.js"></script>
+<script src="$!ctx/product/js/commonUtil.js"></script>
+<script src="$!ctx/product/js/insuranceProductSCB.js"></script>
+<script type="text/javascript" src="$msburl/common/js/WdatePicker.js"></script>
+<script src="$msburl/common/js/Y.js"></script>
+<script src="$msburl/common/js/jQuery.blockUI.js"></script>
+#parse('input.vm')
+#parse('common.vm')
+<link rel="stylesheet" href="$msburl/common/css/style.css" />
+
+<script>
+    //alert(document.documentElement.clientWidth);
+</script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>welcome to freemarker</title>
+</head>
+<body>
+<h4>亲爱的张三，你好！</h4>
+
+	<p> 循环信息0，请不要告诉其他人，切记！</p>
+	<p> 循环信息1，请不要告诉其他人，切记！</p>
+	<p> 循环信息2，请不要告诉其他人，切记！</p>
+	<p> 循环信息3，请不要告诉其他人，切记！</p>
+	<p> 循环信息4，请不要告诉其他人，切记！</p>
+
+map message list:
+    <ul>
+		    <li>0: 列表信息标题0, 详细内容0</li>
+		    <li>1: 列表信息标题1, 详细内容1</li>
+		    <li>2: 列表信息标题2, 详细内容2</li>
+		    <li>3: 列表信息标题3, 详细内容3</li>
+		    <li>4: 列表信息标题4, 详细内容4</li>
+	</ul>
+
+list in sub-template included:
+    <ul>
+            <li>subTpl: 0: 列表信息标题0, 详细内容0</li>
+            <li>subTpl: 1: 列表信息标题1, 详细内容1</li>
+            <li>subTpl: 2: 列表信息标题2, 详细内容2</li>
+            <li>subTpl: 3: 列表信息标题3, 详细内容3</li>
+            <li>subTpl: 4: 列表信息标题4, 详细内容4</li>
+    </ul>
+
+祝：开心！
+</br>
+老许
+</br>
+2018-11-30
+
+<br/>
+<br/>
+Copyright 2015-2017 XuJJ
+<br/>
+All rights reserved.
+<div data-role="navbar" class="specnav">
+    <ul>
+        #foreach($key1 in $productMapAQSC.keySet())
+        #if($key1 == $key)
+        <li>
+            <a href="#page$key1" class="ui-btn-active ui-state-persist" id="currentLi$key1">$productMapAQSC.get($key1).getProductName()</a>
+        </li>
+        #else
+        <li>
+            <a href="#page$key1" id="currentLi$key1">$productMapAQSC.get($key1).getProductName()</a>
+        </li>
+        #end
+        #end
+    </ul>
+</div>
+
+</body>
+</html>

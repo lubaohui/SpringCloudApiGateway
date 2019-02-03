@@ -1,0 +1,53 @@
+// jar包的名字
+archivesBaseName = 'eureka-server'
+
+buildscript {
+    ext {
+        //springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        //maven { url "http://repo.spring.io/snapshot" }
+        //maven { url "http://repo.spring.io/milestone" }
+        //jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+//plugins { id "io.spring.dependency-management" version "1.0.0.RELEASE" }
+
+
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'springcloud-module-eureka-server'
+    //version = '0.0.1-SNAPSHOT'
+}
+
+//bootRepackage.enabled = false
+bootRepackage {
+    //enabled = false
+}
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    //maven { url "http://repo.spring.io/snapshot" }
+    //maven { url "http://repo.spring.io/milestone" }
+    //jcenter()
+}
+
+//依赖的包或模块
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}") }
+}
